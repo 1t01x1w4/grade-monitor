@@ -1,0 +1,14 @@
+{
+  "server": {
+    "http": {
+      "enable": false
+    },
+    "ws": {
+      "enable": true,
+      "port": 3001
+    }
+  },
+  "ws_reverse": {
+    "enable": false
+  }
+}

@@ -1,0 +1,12 @@
+.env
+__pycache__/
+*.pyc
+*.db
+data/
+napcat/data/
+napcat/logs/
+*.log
+.DS_Store
+debug_app.js
+vendor.js
+*.py.bak
