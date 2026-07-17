@@ -9,8 +9,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 # 安装 Python 依赖
 COPY pyproject.toml .
-RUN pip install --no-cache-dir lxml && \
-    pip install --no-cache-dir \
+RUN pip install --no-cache-dir lxml -i https://mirrors.aliyun.com/pypi/simple/ && \
+    pip install --no-cache-dir -i https://mirrors.aliyun.com/pypi/simple/ \
     nonebot2 \
     nonebot-adapter-onebot \
     httpx \
