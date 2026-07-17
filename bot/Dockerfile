@@ -19,6 +19,7 @@ RUN pip install --no-cache-dir lxml && \
     apscheduler \
     python-dotenv \
     cryptography \
+    websockets \
     ddddocr
 
 COPY . .
