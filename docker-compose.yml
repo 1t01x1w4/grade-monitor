@@ -1,36 +1,14 @@
 services:
-  napcat:
-    image: mlikiowa/napcat-docker:latest
-    container_name: napcat
-    restart: unless-stopped
-    environment:
-      - NAPCAT_UID=0
-      - NAPCAT_GID=0
-    ports:
-      - "6099:6099"   # NapCatQQ WebUI
-    volumes:
-      - ./napcat/data:/app/.config/QQ
-      - ./napcat/config:/app/napcat/config
-    networks:
-      - bot-net
-
   bot:
     build: ./bot
     container_name: grade-monitor-bot
     restart: unless-stopped
+    network_mode: host
     env_file:
       - ./bot/.env
     environment:
       - DRIVER=~websockets
-      - ONEBOT_WS_URLS=["ws://napcat:3001"]
+      - ONEBOT_WS_URLS=["ws://127.0.0.1:3001"]
     volumes:
       - ./bot/src:/app/src
       - ./data:/app/data
-    depends_on:
-      - napcat
-    networks:
-      - bot-net
-
-networks:
-  bot-net:
-    driver: bridge
